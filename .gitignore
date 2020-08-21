@@ -1,3 +1,7 @@
-.gitignore
 .vs
+*.[oa]
 *.log
+*~
+tmp
+pid
+log
