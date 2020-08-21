@@ -1,6 +1,7 @@
 .vs
 *.[oa]
 *.log
+*.exe
 *~
 tmp
 pid
