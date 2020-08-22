@@ -72,7 +72,7 @@
             this.Controls.Add(this.window);
             this.Controls.Add(this.frame);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Form 1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
