@@ -1,0 +1,10 @@
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\bin\Debug\WindowsThemeCreator.exe.config
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\bin\Debug\WindowsThemeCreator.exe
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\bin\Debug\WindowsThemeCreator.pdb
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\obj\Debug\WindowsThemeCreator.csprojAssemblyReference.cache
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\obj\Debug\WindowsThemeCreator.Form1.resources
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\obj\Debug\WindowsThemeCreator.Properties.Strings.resources
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\obj\Debug\WindowsThemeCreator.csproj.GenerateResource.cache
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\obj\Debug\WindowsThemeCreator.csproj.CoreCompileInputs.cache
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\obj\Debug\WindowsThemeCreator.exe
+F:\CSharp\WindowsThemeCreator\WindowsThemeCreator\obj\Debug\WindowsThemeCreator.pdb
