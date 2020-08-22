@@ -35,7 +35,7 @@
             // 
             // frame
             // 
-            this.frame.BackColor = System.Drawing.Color.DimGray;
+            this.frame.BackColor = System.Drawing.Color.DarkRed;
             this.frame.Location = new System.Drawing.Point(12, 12);
             this.frame.Multiline = true;
             this.frame.Name = "frame";
@@ -45,7 +45,7 @@
             // window
             // 
             this.window.BackColor = System.Drawing.Color.Lime;
-            this.window.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.window.ForeColor = System.Drawing.SystemColors.Highlight;
             this.window.Location = new System.Drawing.Point(22, 24);
             this.window.Multiline = true;
             this.window.Name = "window";
