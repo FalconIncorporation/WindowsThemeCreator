@@ -24,7 +24,7 @@ namespace WindowsThemeCreator
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            Main();
+            //Main();
         }
 
         public void UseTheme(Theme theme)
@@ -63,10 +63,10 @@ namespace WindowsThemeCreator
                     //case "MenuText": break;
                     //case "Scrollbar": break;
                     //case "TitleText": break;
-                    case "Window": window.BackColor = color; break;
-                    case "WindowFrame": frame.BackColor = color; break;
-                    case "WindowText": window.ForeColor = color; break;
-                    default: continue;
+                    //case "Window": window.BackColor = color; break;
+                    //case "WindowFrame": frame.BackColor = color; break;
+                    //case "WindowText": window.ForeColor = color; break;
+                    //default: continue;
                 }
             }
         }
