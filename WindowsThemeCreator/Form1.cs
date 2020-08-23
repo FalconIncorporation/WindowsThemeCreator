@@ -9,7 +9,7 @@ namespace WindowsThemeCreator
 {
     public partial class Form1 : Form
     {
-        private const string PATH = "../../themes/TestColors.reg";
+        private Theme testTheme = new Theme();
 
         public Form1()
         {
@@ -19,25 +19,19 @@ namespace WindowsThemeCreator
 
         private void Main()
         {
-            var fileLines = ReadFile(PATH);
-            var componentDict = GetComponents(fileLines);
-            UseTheme(componentDict);
+            UseTheme(testTheme);
         }
 
-        private void Main(string path)
+        private void button1_Click(object sender, System.EventArgs e)
         {
-            var fileLines = ReadFile(path);
-            var componentDict = GetComponents(fileLines);
-            UseTheme(componentDict);
+            Main();
         }
 
-        public void UseTheme(Dictionary<string, string> theme)
+        public void UseTheme(Theme theme)
         {
-            foreach(var option in theme.Keys)
+            foreach(var option in theme.keyColorPairs.Keys)
             {
-                var colorSplit = theme[option].Split(' ');
-                var colorTab = new[] { int.Parse(colorSplit[0]), int.Parse(colorSplit[1]), int.Parse(colorSplit[2]) };
-                var color = Color.FromArgb(colorTab[0], colorTab[1], colorTab[2]);
+                var color = theme.keyColorPairs[option];
 
                 switch (option)
                 {
@@ -75,34 +69,6 @@ namespace WindowsThemeCreator
                     default: continue;
                 }
             }
-        }
-
-        public List<string> ReadFile (string path)
-        {
-            var data = File.ReadAllLines(path, System.Text.Encoding.UTF8);
-            return data.ToList();
-        }
-
-        public Dictionary<string, string> GetComponents(List<string> lines)
-        {
-            var pat = @".(\w+).{3}(\d+\s+\d+\s+\d+).";
-            var result = new Dictionary<string, string>();
-
-            foreach(var line in lines)
-            {
-                var lineMatch = Regex.Match(line, pat, RegexOptions.IgnoreCase);
-                if(lineMatch.Success)
-                {
-                    result.Add(lineMatch.Groups[1].Value, lineMatch.Groups[2].Value);
-                }
-            }
-            
-            return result;
-        }
-
-        private void button1_Click(object sender, System.EventArgs e)
-        {
-            Main();
         }
     }
 }
