@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace WindowsThemeCreator
 {
     public class Theme
     {
-        private const string PATH = "../../themes/";
+        private const string PATH = @"../../themes/";
 
         public Theme(string name = "TestColors")
         {
@@ -18,6 +16,19 @@ namespace WindowsThemeCreator
             this.path = PATH + this.name;
             this.fileData = ReadFile(this.path);
             this.keyColorPairs = GetComponents(this.fileData);
+        }
+
+        private void Init()
+        {
+            var di = Directory.CreateDirectory(Path.GetDirectoryName(this.path));
+            if(di.Exists)
+            {
+                //Log to file that it was already there
+            }
+            else
+            {
+                //Log to file that folder and file was created
+            }
         }
 
         public List<string> ReadFile(string path)

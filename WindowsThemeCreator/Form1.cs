@@ -19,6 +19,11 @@ namespace WindowsThemeCreator
 
         private void Main()
         {
+            Bitmap image;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            image = new Bitmap("../../../tmp/smiley.ppm");
+            pictureBox1.ClientSize = new Size(32, 32);
+            pictureBox1.Image = (Image)image;
             UseTheme(testTheme);
         }
 
