@@ -9,7 +9,7 @@ namespace WindowsThemeCreator
 {
     public partial class Form1 : Form
     {
-        private Theme testTheme = new Theme();
+        private Theme testTheme = new Theme("DefaultColors");
 
         public Form1()
         {
@@ -19,11 +19,10 @@ namespace WindowsThemeCreator
 
         private void Main()
         {
-            Bitmap image;
+            BMP bmpHandler = new BMP(testTheme, "Regedit");
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            image = new Bitmap("../../../tmp/smiley.ppm");
-            pictureBox1.ClientSize = new Size(32, 32);
-            pictureBox1.Image = (Image)image;
+            pictureBox1.ClientSize = new Size(350, 280);
+            pictureBox1.Image = bmpHandler.Output;
             UseTheme(testTheme);
         }
 
