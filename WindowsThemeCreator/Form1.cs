@@ -1,15 +1,15 @@
 ﻿using System.Windows.Forms;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
 using System.Drawing;
 
 namespace WindowsThemeCreator
 {
     public partial class Form1 : Form
     {
-        private Theme testTheme = new Theme();
+        Theme testTheme = new Theme();
+
+        ToolStripMenuItem toolStripMenuItem;
+        TextBox textBox;
+        ushort value;
 
         public Form1()
         {
@@ -17,17 +17,13 @@ namespace WindowsThemeCreator
             Main();
         }
 
-        private void Main()
+        void Main()
         {
             UseTheme(testTheme);
+            AddEvents();
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
-        {
-            //Main();
-        }
-
-        public void UseTheme(Theme theme)
+        void UseTheme(Theme theme)
         {
             foreach(var option in theme.keyColorPairs.Keys)
             {
@@ -69,6 +65,52 @@ namespace WindowsThemeCreator
                     //default: continue;
                 }
             }
+        }
+
+        void AddEvents()
+        {
+            helpToolStripMenuItem.Click += ToolStripMenuItem_Click;
+            authorsToolStripMenuItem.Click += ToolStripMenuItem_Click;
+            exitToolStripMenuItem.Click += ToolStripMenuItem_Click;
+
+            textBox1.KeyPress += TextBox_KeyPress;
+            textBox2.KeyPress += TextBox_KeyPress;
+            textBox3.KeyPress += TextBox_KeyPress;
+            textBox4.KeyPress += TextBox_KeyPress;
+        }
+
+        void ToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            toolStripMenuItem = (ToolStripMenuItem)sender;
+
+            if (toolStripMenuItem.Text == "Help")
+                MessageBox.Show("Some help text", "Help");
+            else if (toolStripMenuItem.Text == "Authors")
+                MessageBox.Show("Marcin Sokołowski, Michał Skowron", "Authors");
+            else
+                Application.Exit();
+        }
+
+        void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            textBox = (TextBox)sender;
+
+            if (e.KeyChar == (char)Keys.Back)
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                value = ushort.Parse(string.Format("{0}{1}", textBox.Text, e.KeyChar));
+
+                if (value >= 0 && value <= 255)
+                {
+                    textBox.Text = value.ToString();
+                    textBox.SelectionStart = textBox.Text.Length;
+                    label5.BackColor = Color.FromArgb(ushort.Parse(textBox1.Text), ushort.Parse(textBox2.Text), ushort.Parse(textBox3.Text), ushort.Parse(textBox4.Text));
+                }
+            }
+
+            e.Handled = true;
         }
     }
 }
